@@ -2,6 +2,7 @@ package com.valorant_accesories.Valorant_Accessories.Service;
 
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,36 +30,38 @@ public class ValoService {
     @Value("${valo.weapons.url}")
     private String base_url_weapons;
 
+    @Cacheable(value = "agents",key = "#isPlayableCharacter")
     public String getAgents(Boolean isPlayableCharacter) {
         String url = base_url_agents + "&isPlayableCharacter=" + isPlayableCharacter;
         return restTemplate.getForObject(url, String.class);
     }
 
+    @Cacheable(value = "buddies")
     public String getBuddies(){
         String url=base_url_buddies;
         return restTemplate.getForObject(url,String.class);
     }
-
+    @Cacheable(value = "bundles")
     public String getBundles(){
         String url=base_url_bundles;
         return restTemplate.getForObject(url,String.class);
     }
-
+    @Cacheable(value = "comp")
     public String getCompe(){
         String url=base_url_compe;
         return restTemplate.getForObject(url,String.class);
     }
-
+    @Cacheable(value = "gamemodes")
     public String getGameModes(){
         String url=base_url_gameModes;
         return restTemplate.getForObject(url,String.class);
     }
-
+    @Cacheable(value = "maps")
     public String getMaps(){
         String url=base_url_maps;
         return restTemplate.getForObject(url,String.class);
     }
-
+    @Cacheable
     public String getWeapons(){
         String url=base_url_weapons;
         return restTemplate.getForObject(url,String.class);

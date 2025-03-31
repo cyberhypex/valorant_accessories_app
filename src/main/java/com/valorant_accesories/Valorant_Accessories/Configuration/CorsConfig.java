@@ -1,4 +1,4 @@
-package com.valorant_accesories.Valorant_Accessories;
+package com.valorant_accesories.Valorant_Accessories.Configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
