@@ -65,7 +65,7 @@ public class ValoService {
         String url=base_url_maps;
         return restTemplate.getForObject(url,String.class);
     }
-    @Cacheable
+    @Cacheable(value = "weapons")
     public String getWeapons(){
         String url=base_url_weapons;
         return restTemplate.getForObject(url,String.class);
