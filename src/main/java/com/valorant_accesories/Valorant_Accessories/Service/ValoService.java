@@ -3,17 +3,17 @@ package com.valorant_accesories.Valorant_Accessories.Service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+@EnableCaching
 @Service
 public class ValoService {
     private final RestTemplate restTemplate;
 
 
-    public ValoService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+
 
     @Value("${valo.agents.url}")  // Use ${} instead of {}
     private String base_url_agents;
@@ -29,6 +29,10 @@ public class ValoService {
     private String base_url_maps;
     @Value("${valo.weapons.url}")
     private String base_url_weapons;
+
+    public ValoService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Cacheable(value = "agents",key = "#isPlayableCharacter")
     public String getAgents(Boolean isPlayableCharacter) {

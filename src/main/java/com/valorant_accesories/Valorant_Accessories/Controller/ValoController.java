@@ -1,22 +1,22 @@
 package com.valorant_accesories.Valorant_Accessories.Controller;
-
 import com.valorant_accesories.Valorant_Accessories.Service.ValoService;
-import org.checkerframework.checker.units.qual.C;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.*;
 
 
 
-
+@EnableCaching
 @RestController
 @RequestMapping("/valorant")
 public class ValoController {
 
     @Autowired
     private ValoService valoService;
+
 
     @Cacheable(value = "agents")
     @GetMapping("/getAgents/{isPlayable}")

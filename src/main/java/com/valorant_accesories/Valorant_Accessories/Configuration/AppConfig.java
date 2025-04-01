@@ -9,6 +9,7 @@ public class AppConfig {
 
     @Bean
     public RestTemplate restTemplate() {
+        System.out.println("✅ RestTemplate Bean Created!");
         return new RestTemplate();
     }
 }
