@@ -9,6 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableCaching
 @ComponentScan(basePackages = {"com.valorant_accesories.Valorant_Accessories"})
 public class ValorantAccessoriesApplication {
+	//deploying issue
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(ValorantAccessoriesApplication.class, args);
