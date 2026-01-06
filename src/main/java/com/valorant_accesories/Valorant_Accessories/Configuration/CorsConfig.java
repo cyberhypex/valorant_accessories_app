@@ -13,6 +13,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
+
                         .allowedOrigins("https://valorant-accessories-frontend.vercel.app/")
                         .allowedMethods("GET", "POST", "PUT", "DELETE");
             }

@@ -17,6 +17,11 @@ public class ValoController {
     @Autowired
     private ValoService valoService;
 
+    @GetMapping("/health")
+    public String getHealth(){
+        return "Health check";
+    }
+
 
     @Cacheable(value = "agents")
     @GetMapping("/getAgents/{isPlayable}")
